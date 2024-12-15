@@ -1,0 +1,54 @@
+Build The Images
+---------------------------------------------------------------------------------------------
+$ docker build -t flask_app Backend/myflaskapp
+$ docker build -t angular_app Frontend/sample-frontend
+$ docker build -t reverse-proxy Reverse-Proxy
+
+
+Tag The Images
+---------------------------------------------------------------------------------------------
+$ docker tag flask_app docker_hub_user_name/flask_app:latest
+$ docker tag angular_app docker_hub_user_name/angular_app:latest
+$ docker tag reverse-proxy docker_hub_user_name/reverse-proxy:latest
+
+
+Push The Images From LocalSystem To Docker Hub
+---------------------------------------------------------------------------------------------
+$ docker push docker_hub_user_name/flask_app:latest
+$ docker push docker_hub_user_name/angular_app:latest
+$ docker push docker_hub_user_name/reverse-proxy:latest
+
+
+Pull The Images From Docker Hub To EC2 Instance
+---------------------------------------------------------------------------------------------
+$ docker pull docker_hub_user_name/flask_app:latest
+$ docker pull docker_hub_user_name/angular_app:latest
+$ docker pull docker_hub_user_name/reverse-proxy:latest
+
+
+Run the Containers One By One
+---------------------------------------------------------------------------------------------
+$ docker run -d --name flask_app --network mynetwork -p 7080:80 -p 7443:443 \
+-v /etc/letsencrypt/live/flask.example.com/fullchain.pem:/etc/letsencrypt/live/flask.example.com/fullchain.pem \
+-v /etc/letsencrypt/live/flask.example.com/privkey.pem:/etc/letsencrypt/live/flask.example.com/privkey.pem \
+-v /var/www/certbot:/var/www/certbot docker_hub_user_name/flask_app
+
+$ docker run -d --name angular_app --network mynetwork -p 6080:80 -p 6443:443 \
+-v /etc/letsencrypt/live/angular.example.com/fullchain.pem:/etc/letsencrypt/live/angular.example.com/fullchain.pem \
+-v /etc/letsencrypt/live/angular.example.com/privkey.pem:/etc/letsencrypt/live/angular.example.com/privkey.pem \
+-v /var/www/certbot:/var/www/certbot docker_hub_user_name/angular_app
+
+$ docker run -d --name reverse-proxy  --network mynetwork -p 80:80 -p 443:443 \
+-v /etc/letsencrypt/live/flask.example.com/fullchain.pem:/etc/letsencrypt/live/flask.example.com/fullchain.pem \
+-v /etc/letsencrypt/live/flask.example.com/privkey.pem:/etc/letsencrypt/live/flask.example.com/privkey.pem \
+-v /etc/letsencrypt/live/angular.example.com/fullchain.pem:/etc/letsencrypt/live/angular.example.com/fullchain.pem \
+-v /etc/letsencrypt/live/angular.example.com/privkey.pem:/etc/letsencrypt/live/angular.example.com/privkey.pem \
+-v /var/www/certbot:/var/www/certbot reverse-proxy
+
+Check The Status Of The Containers
+$ docker ps -a
+
+Stop Containers from running
+$ docker stop <container_id>
+
+

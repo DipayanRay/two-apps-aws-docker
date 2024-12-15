@@ -1,0 +1,250 @@
+# Ignore node_modules for Node.js projects
+**/node_modules/
+
+# Ignore build directories
+**/dist/
+**/build/
+**/out-tsc/
+**/public/
+
+# Angular specific ignores
+**/.angular/
+**/.angular/cache/
+**/tmp/
+**/.sass-cache/
+
+# Logs
+**/logs/
+**/*.log
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/lerna-debug.log*
+
+# OS generated files
+**/.DS_Store
+**/Thumbs.db
+
+# Dependency directories
+**/jspm_packages/
+**/bower_components/
+
+# Runtime data
+**/pids/
+**/*.pid
+**/*.seed
+**/*.pid.lock
+
+# Compiled binary addons (Node.js)
+**/build/Release
+
+# Coverage directory used by testing tools like istanbul and pytest
+**/coverage/
+**/*.lcov
+
+# dotenv environment variable files
+**/.env
+**/.env.*
+**/.local
+
+# IDE and Editor directories and files
+**/.idea/
+**/.vscode/
+**/*.sublime-project
+**/*.sublime-workspace
+
+# Python specific ignores
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+
+# Virtualenv
+**/.venv/
+**/venv/
+**/ENV/
+**/env/
+**/env.bak/
+**/venv.bak/
+**/.python-version
+
+# Django specific ignores
+**/*.log
+**/*.pot
+**/*.pyc
+**/__pycache__/
+**/local_settings.py
+**/db.sqlite3
+
+# Flask specific ignores
+**/instance/
+**/.webassets-cache
+
+# Jupyter Notebook
+**/.ipynb_checkpoints
+
+# PostgreSQL specific ignores
+**/pgdata/
+**/*.pgsql
+**/*.pgpass
+**/pg_log/
+**/pg_xlog/
+**/pg_wal/
+**/pg_stat_tmp/
+
+# Compiled output
+**/*.class
+**/*.jar
+**/*.war
+**/*.ear
+
+# Maven
+**/target/
+
+# Gradle
+**/.gradle
+**/build/
+
+# IntelliJ
+**/*.iml
+**/*.ipr
+**/*.iws
+**/.idea/
+
+# Eclipse
+**/.metadata
+**/*.log
+**/*.tmp
+**/*.bak
+**/*.swp
+**/.pki/
+**/.pydevproject
+**/.project
+**/.settings/
+
+# NetBeans
+**/nbproject/private/
+**/nbbuild/
+**/dist/
+**/nbdist/
+**/.nb-gradle/
+
+# VS Code
+**/.vscode/
+
+# Visual Studio
+**/.vscode/
+**/.vscode-test/
+**/.vscode-debug/
+**/.Dbg/
+**/.vscode/launch.json
+**/*.csproj.user
+**/*.suo
+**/*.user
+**/*.userosscache
+**/*.sln.docstates
+
+# Rider
+**/.idea/
+**/*.sln.iml
+
+# Unity
+**/[Ll]ibrary/
+**/[Tt]emp/
+**/[Oo]bj/
+**/[Bb]uild/
+**/[Bb]uilds/
+**/[Ll]ogs/
+**/[Mm]emoryCaptures/
+**/UserSettings/
+**/ProjectSettings/
+**/*.csproj
+**/*.unityproj
+**/*.sln
+**/*.sln.metaproj
+**/*.unityproj.metaproj
+**/*.csproj.metaproj
+**/*.pidb
+**/*.svd
+**/*.userprefs
+**/*.pcf
+
+# Unreal Engine
+**/Binaries/
+**/DerivedDataCache/
+**/Intermediate/
+**/Saved/
+**/.vscode/
+**/.vscode-test/
+
+# WebAssembly
+**/*.wasm
+**/*.wat
+
+# JetBrains Rider
+**/.idea/
+**/*.sln.iml
+
+# Rust
+**/target/
+**/*.rs.bk
+
+# Ruby
+**/*.gem
+**/*.rbc
+**/.config
+**/coverage/
+**/InstalledFiles
+**/pkg/
+**/spec/reports/
+**/test/tmp/
+**/test/version_tmp/
+**/tmp/
+
+# Rails
+**/*.rbc
+**/.sass-cache
+**/.yardoc
+**/_yardoc/
+**/.redcar/
+**/.sass-cache/
+**/config/application.yml
+**/log/
+**/tmp/
+**/db/*.sqlite3
+**/db/*.sqlite3-journal
+**/public/system
+**/public/uploads
+
+# Go
+**/bin/
+**/pkg/
+
+# Elixir
+**/_build/
+**/deps/
+**/erl_crash.dump
+
+# Haskell
+**/dist/
+**/dist-newstyle/
+**/.stack-work/
+**/.cabal-sandbox/
+**/cabal.sandbox.config
+
+# Lua
+**/luarocks/
+**/*.luac
+
+# PHP
+**/vendor/
+
+# Swift
+**/*.xcodeproj/
+**/*.xcworkspace/
+**/DerivedData/
+**/.idea/
+**/.vscode/
+
+# SSL Origin Certificates Or Let's Certify Certificates
+**/ssl
+**/openssl

@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  reverse-proxy:
+    image: docker_hub_user_name/reverse-proxy:latest
+    container_name: reverse-proxy
+    ports:
+      - "80:80"   # Host port 80 mapped to container port 80
+      - "443:443" # Host port 443 mapped to container port 443
+    depends_on:
+      - angular
+      - flask
+    networks:
+      - mynetwork
+    volumes:
+      - /etc/letsencrypt/live/flask.example.com/fullchain.pem:/etc/letsencrypt/live/flask.example.com/fullchain.pem:ro
+      - /etc/letsencrypt/live/flask.example.com/privkey.pem:/etc/letsencrypt/live/flask.example.com/privkey.pem:ro
+      - /etc/letsencrypt/live/angular.example.com/fullchain.pem:/etc/letsencrypt/live/angular.example.com/fullchain.pem:ro
+      - /etc/letsencrypt/live/angular.example.com/privkey.pem:/etc/letsencrypt/live/angular.example.com/privkey.pem:ro
+      - /var/www/certbot:/var/www/certbot:ro
+
+  flask:
+    image: docker_hub_user_name/flask_app:latest
+    container_name: flask_app
+    ports:
+      - "7080:80"   # Host port 7080 mapped to container port 7080
+      - "7443:443"  # Host port 7443 mapped to container port 7443
+    networks:
+      - mynetwork
+    volumes:
+      - /etc/letsencrypt/live/flask.example.com/fullchain.pem:/etc/letsencrypt/live/flask.example.com/fullchain.pem:ro
+      - /etc/letsencrypt/live/flask.example.com/privkey.pem:/etc/letsencrypt/live/flask.example.com/privkey.pem:ro
+      - /var/www/certbot:/var/www/certbot:ro
+
+  angular:
+    image: docker_hub_user_name/angular_app:latest
+    container_name: angular_app
+    ports:
+      - "6080:80"   # Host port 6080 mapped to container port 6080
+      - "6443:443"  # Host port 6443 mapped to container port 6443
+    networks:
+      - mynetwork
+    volumes:
+      - /etc/letsencrypt/live/angular.example.com/fullchain.pem:/etc/letsencrypt/live/angular.example.com/fullchain.pem:ro
+      - /etc/letsencrypt/live/angular.example.com/privkey.pem:/etc/letsencrypt/live/angular.example.com/privkey.pem:ro
+      - /var/www/certbot:/var/www/certbot:ro
+
+networks:
+  mynetwork:
+    driver: bridge
